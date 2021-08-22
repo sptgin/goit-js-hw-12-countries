@@ -9,10 +9,34 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <link
+      href="../node_modules/@pnotify/core/dist/PNotify.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../node_modules/@pnotify/mobile/dist/PNotifyMobile.css"
+      rel="stylesheet"
+      type="text/css"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>Домашнее задание 12</h1>
+    <h1>Search country</h1>
+
+    <form id="country_search_form" name="search_country_form">
+      <div>
+        <h2>Country name:</h2>
+        <input
+          id="country_search_input"
+          type="text"
+          name="country_name"
+          style="width: 100%"
+        />
+      </div>
+    </form>
+    <ul class="country__list"></ul>
+    <article class="country__card"></article>
     <script src="./index.js"></script>
   </body>
 </html>

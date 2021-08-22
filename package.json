@@ -28,8 +28,11 @@
     "sass": "^1.32.8"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "gh-pages": "^3.2.3",
     "handlebars": "^4.7.7",
-    "handlebars-loader": "^1.7.1"
+    "handlebars-loader": "^1.7.1",
+    "lodash.debounce": "^4.0.8",
+    "pnotify": "^5.2.0"
   }
 }
