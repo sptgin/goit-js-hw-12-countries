@@ -1,9 +1,9 @@
 import './styles.css';
-// import {
-//   alert,
-//   defaultModules,
-// } from '../node_modules/@pnotify/core/dist/PNotify.js';
-// import * as PNotifyMobile from '../node_modules/@pnotify/mobile/dist/PNotifyMobile.js';
+import {
+  alert,
+  defaultModules,
+} from '../node_modules/@pnotify/core/dist/PNotify.js';
+import * as PNotifyMobile from '../node_modules/@pnotify/mobile/dist/PNotifyMobile.js';
 import debounce from 'lodash.debounce';
 import countryListTemplate from './templates/countrylist.hbs';
 import countryCardTemplate from './templates/countrycard.hbs';
@@ -20,19 +20,31 @@ function countrySearch(event) {
   event.preventDefault();
   countrySearchListClear();
   countrySearchCardClear();
-  if (countrySearchInput.value === '') {
-  } else {
-    сountrySearchAPI.query = countrySearchInput.value;
-    сountrySearchAPI.fetchCountries().then(countres => {
-      if (countres.length > 1) {
-        countrySearchListMake(countres);
-      } else {
+  сountrySearchAPI.query = countrySearchInput.value;
+  сountrySearchAPI
+    .fetchCountries()
+    .then(countres => {
+      if (countres.length === 1) {
         countrySearchCardMake(countres);
+      } else {
+        if (countres.length > 1 && countres.length < 11) {
+          countrySearchListMake(countres);
+        } else {
+          alert({
+            text: 'Too many matces found !',
+            delay: 500,
+          });
+          console.log(countres.length);
+        }
       }
       countrySearchInput.value = '';
-      console.log(countres.length);
+    })
+    .catch(() => {
+      alert({
+        text: 'No data for search ...',
+        delay: 500,
+      });
     });
-  }
 }
 
 function countrySearchListMake(countres) {

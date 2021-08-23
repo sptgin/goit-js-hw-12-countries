@@ -12,6 +12,9 @@ export default class ConutresAPI {
       .then(response => response.json())
       .then(countres => {
         return countres;
+      })
+      .catch(() => {
+        return null;
       });
   }
 
