@@ -7,14 +7,14 @@ import * as PNotifyMobile from '../node_modules/@pnotify/mobile/dist/PNotifyMobi
 import debounce from 'lodash.debounce';
 import countryListTemplate from './templates/countrylist.hbs';
 import countryCardTemplate from './templates/countrycard.hbs';
-import CountresAPI from './fetchCountries';
+import CountriesAPI from './fetchCountries';
 
 const countrySearchInput = document.querySelector('#country_search_input');
 const countrySearchList = document.querySelector('.country__list');
 const countrySearchCard = document.querySelector('.country__card');
-const сountrySearchAPI = new CountresAPI();
+const сountrySearchAPI = new CountriesAPI();
 
-countrySearchInput.addEventListener('input', debounce(countrySearch, 1000));
+countrySearchInput.addEventListener('input', debounce(countrySearch, 500));
 
 function countrySearch(event) {
   event.preventDefault();
@@ -33,12 +33,12 @@ function countrySearch(event) {
           if (countres.length > 10) {
             alert({
               text: 'Too many matces found !',
-              delay: 500,
+              delay: 1000,
             });
           } else {
             alert({
               text: 'No matces found !',
-              delay: 500,
+              delay: 1000,
             });
           }
         }
@@ -48,7 +48,7 @@ function countrySearch(event) {
     .catch(() => {
       alert({
         text: 'No data for search ...',
-        delay: 500,
+        delay: 1000,
       });
     });
 }
