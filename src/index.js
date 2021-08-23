@@ -30,11 +30,17 @@ function countrySearch(event) {
         if (countres.length > 1 && countres.length < 11) {
           countrySearchListMake(countres);
         } else {
-          alert({
-            text: 'Too many matces found !',
-            delay: 500,
-          });
-          console.log(countres.length);
+          if (countres.length > 10) {
+            alert({
+              text: 'Too many matces found !',
+              delay: 500,
+            });
+          } else {
+            alert({
+              text: 'No matces found !',
+              delay: 500,
+            });
+          }
         }
       }
       countrySearchInput.value = '';

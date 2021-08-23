@@ -53,3 +53,6 @@ body {
 }
 .country__languages_item {
 }
+.country__list_item {
+  font-weight: bold;
+}

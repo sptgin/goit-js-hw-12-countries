@@ -13,9 +13,7 @@ export default class ConutresAPI {
       .then(countres => {
         return countres;
       })
-      .catch(() => {
-        return null;
-      });
+      .catch();
   }
 
   get query() {
